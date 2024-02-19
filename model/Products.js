@@ -9,7 +9,7 @@
         db.query(qry, (err, results) => {
             if (err) throw err;
             res.json({
-              status: res.statusCode,
+              status: statusCode,
               results,
             });
           }); 
@@ -23,7 +23,7 @@
         db.query(qry, (err, result) => {
             if (err) throw err;
             res.json({
-              status: res.statusCode,
+              status: statusCode,
               result,
             });
           }); 

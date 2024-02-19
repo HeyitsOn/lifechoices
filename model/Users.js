@@ -18,8 +18,7 @@ class Users {
   fetchUser(req, res) {
     const qry = `
     SELECT userID,firstName,lastName,userAge,emailAdd,userPwd,userRole
-    FROM users
-        WHERE userID = ${req.params.id}
+    FROM users WHERE userID = ${req.params.id}
         `;
     db.query(qry, (err, result) => {
       if (err) throw err;
@@ -46,6 +45,7 @@ SET ?;
         res.json({
           status: res.statusCode,
           msg: "already exists.please use another email address",
+          data
         });
       } else {
         //create token
