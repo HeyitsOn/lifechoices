@@ -37,6 +37,28 @@ userRouter.post('/register',bodyParser.json(),(req,res)=>{
         })
     }
 })
+userRouter.post('/update/:id', bodyParser.json(),(req, res)=>{
+    try{
+        users.updateUser(req, res)
+    
+    }catch(e){
+        res.json({
+            status:res.statusCode,
+            msg: "Failed to update a user"
+        })
+    }
+})
+userRouter.delete('/delete/:id', bodyParser.json(),(req, res)=>{
+    try{
+        users.deleteUser(req, res)
+    }catch(e){
+        res.json({
+            status: res.statusCode,
+            msg: "Failed to delete a user."
+            })
+    }
+})
+
 export{
     userRouter,express
 }
